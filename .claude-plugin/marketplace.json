@@ -1,0 +1,17 @@
+{
+  "name": "pdfvera",
+  "owner": {
+    "name": "pdfvera",
+    "email": "kontakt@pdfvera.com"
+  },
+  "plugins": [
+    {
+      "name": "pdfvera",
+      "source": "./plugin",
+      "description": "PDF invoices to XRechnung and ZUGFeRD; Brazilian bank statement PDFs to OFX, CSV and Excel."
+    }
+  ],
+  "metadata": {
+    "description": "pdfvera plugins for Claude Code"
+  }
+}

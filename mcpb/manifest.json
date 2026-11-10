@@ -1,0 +1,79 @@
+{
+  "manifest_version": "0.3",
+  "name": "pdfvera",
+  "display_name": "pdfvera: E-Rechnung und extrato OFX",
+  "version": "1.0.1",
+  "description": "PDF invoices to XRechnung and ZUGFeRD; Brazilian bank statement PDFs to OFX, CSV and Excel.",
+  "long_description": "Converts a German PDF invoice into XRechnung 3.0 (UBL and CII) and a ZUGFeRD PDF (EN 16931), checked against the KoSIT rules; missing mandatory data comes back as questions. Converts Brazilian bank statement PDFs into OFX (Domínio, Alterdata, Conta Azul, Omie), CSV and Excel after checking the balance. Reads the PDF from your computer and writes the result files next to it. Needs a pdfvera plan and an API key from your pdfvera account.",
+  "author": {
+    "name": "pdfvera",
+    "email": "kontakt@pdfvera.com",
+    "url": "https://pdfvera.com/"
+  },
+  "homepage": "https://pdfvera.com/",
+  "documentation": "https://pdfvera.com/de/e-rechnung-api/",
+  "support": "https://github.com/pdfvera/pdfvera-mcp/issues",
+  "icon": "icon.png",
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/server/index.js"
+      ],
+      "env": {
+        "PDFVERA_API_KEY": "${user_config.api_key}"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "convert_invoice",
+      "description": "PDF invoice to XRechnung (UBL, CII) and ZUGFeRD"
+    },
+    {
+      "name": "convert_bank_statement",
+      "description": "Brazilian bank statement PDF to OFX, CSV and Excel"
+    },
+    {
+      "name": "get_usage",
+      "description": "pdfvera plan and monthly quota"
+    }
+  ],
+  "keywords": [
+    "xrechnung",
+    "zugferd",
+    "e-rechnung",
+    "ofx",
+    "extrato"
+  ],
+  "license": "MIT",
+  "privacy_policies": [
+    "https://pdfvera.com/de/datenschutz/",
+    "https://pdfvera.com/pt-br/privacidade/"
+  ],
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  },
+  "user_config": {
+    "api_key": {
+      "type": "string",
+      "title": "pdfvera API key",
+      "description": "Create it in your pdfvera account: pdfvera.com/de/konto/ or pdfvera.com/pt-br/conta/",
+      "sensitive": true,
+      "required": true
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pdfvera/pdfvera-mcp"
+  }
+}

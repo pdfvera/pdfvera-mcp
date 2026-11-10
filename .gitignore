@@ -1,0 +1,7 @@
+node_modules/
+*.tgz
+*.mcpb
+mcpb/server/
+work/
+dist/
+test-client.mjs

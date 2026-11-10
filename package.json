@@ -1,0 +1,58 @@
+{
+  "name": "pdfvera-mcp",
+  "version": "1.0.1",
+  "mcpName": "com.pdfvera/pdfvera",
+  "description": "MCP server for pdfvera: PDF invoices to XRechnung/ZUGFeRD, Brazilian bank statement PDFs to OFX/CSV/Excel. Reads local PDFs, writes the results next to them.",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "claude",
+    "cursor",
+    "xrechnung",
+    "zugferd",
+    "e-rechnung",
+    "en16931",
+    "ofx",
+    "extrato-bancario",
+    "pdf"
+  ],
+  "homepage": "https://pdfvera.com/de/e-rechnung-api/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pdfvera/pdfvera-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pdfvera/pdfvera-mcp/issues"
+  },
+  "author": {
+    "name": "pdfvera",
+    "email": "kontakt@pdfvera.com",
+    "url": "https://pdfvera.com/"
+  },
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "pdfvera-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "esbuild src/index.ts --bundle --platform=node --format=esm --target=node18 --minify --outfile=dist/index.js --banner:js=\"#!/usr/bin/env node\nimport{createRequire}from'module';const require=createRequire(import.meta.url);\"",
+    "prepublishOnly": "npm run typecheck && npm run build"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "@types/node": "^26.6.6",
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2",
+    "zod": "^4.6.7"
+  }
+}
