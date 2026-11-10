@@ -10,4 +10,5 @@ cp pdfvera.mcpb ../pdfvera-web/public/mcp/pdfvera.mcpb
 KEY="$(openssl pkey -in ~/.config/pdfvera/mcp-registry-ed25519.pem -outform DER | tail -c 32 | xxd -p -c 64)"
 mcp-publisher login http --domain pdfvera.com --private-key "$KEY"
 mcp-publisher publish
-echo "Done. Deploy pdfvera-web (npm run cf:deploy) so the new .mcpb is live."
+(cd plugin && sed -i '' "s/\"pdfvera-mcp\": \"[0-9.]*\"/\"pdfvera-mcp\": \"$(node -p "require('../package.json').version")\"/" package.json && npm install --package-lock-only --prefer-online)
+echo "Commit and push (the plugin lockfile changed). Deploy pdfvera-web (npm run cf:deploy) so the new .mcpb is live."

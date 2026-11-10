@@ -5,12 +5,12 @@
   "description": "PDF invoices to XRechnung/ZUGFeRD; Brazilian bank statement PDFs to OFX, CSV and Excel.",
   "websiteUrl": "https://pdfvera.com/de/e-rechnung-api/",
   "repository": { "url": "https://github.com/pdfvera/pdfvera-mcp", "source": "github" },
-  "version": "1.0.1",
+  "version": "1.0.2",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "pdfvera-mcp",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "transport": { "type": "stdio" },
       "environmentVariables": [
         { "name": "PDFVERA_API_KEY", "description": "API key from your pdfvera account", "isRequired": true, "isSecret": true }

@@ -6,9 +6,9 @@ import { z } from "zod";
 import { readFile, writeFile, mkdir, stat } from "node:fs/promises";
 import { basename, dirname, extname, join, resolve } from "node:path";
 
-const VERSION = "1.0.1";
+const VERSION = "1.0.2";
 const BASE = (process.env.PDFVERA_API_URL || "https://pdfvera.com").replace(/\/$/, "");
-const KEY = process.env.PDFVERA_API_KEY || "";
+const KEY = process.env.PDFVERA_API_KEY || process.env.CLAUDE_PLUGIN_OPTION_API_KEY || "";
 const MAX = 20 * 1024 * 1024;
 
 const NO_KEY =

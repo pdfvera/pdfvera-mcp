@@ -2,7 +2,7 @@
   "manifest_version": "0.3",
   "name": "pdfvera",
   "display_name": "pdfvera: E-Rechnung und extrato OFX",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "PDF invoices to XRechnung and ZUGFeRD; Brazilian bank statement PDFs to OFX, CSV and Excel.",
   "long_description": "Converts a German PDF invoice into XRechnung 3.0 (UBL and CII) and a ZUGFeRD PDF (EN 16931), checked against the KoSIT rules; missing mandatory data comes back as questions. Converts Brazilian bank statement PDFs into OFX (Domínio, Alterdata, Conta Azul, Omie), CSV and Excel after checking the balance. Reads the PDF from your computer and writes the result files next to it. Needs a pdfvera plan and an API key from your pdfvera account.",
   "author": {

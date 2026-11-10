@@ -1,6 +1,6 @@
 {
   "name": "pdfvera",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Convert PDF invoices into XRechnung and ZUGFeRD e-invoices, and Brazilian bank statement PDFs into OFX, CSV and Excel, right from Claude. Reads the PDF from your computer and writes the results next to it. Needs a pdfvera plan and an API key.",
   "author": { "name": "pdfvera", "email": "kontakt@pdfvera.com", "url": "https://pdfvera.com/" },
   "homepage": "https://pdfvera.com/de/e-rechnung-api/",
