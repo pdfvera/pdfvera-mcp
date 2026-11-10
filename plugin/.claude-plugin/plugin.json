@@ -1,12 +1,23 @@
 {
   "name": "pdfvera",
-  "version": "1.0.2",
+  "displayName": "pdfvera",
+  "version": "1.1.0",
   "description": "Convert PDF invoices into XRechnung and ZUGFeRD e-invoices, and Brazilian bank statement PDFs into OFX, CSV and Excel, right from Claude. Reads the PDF from your computer and writes the results next to it. Needs a pdfvera plan and an API key.",
-  "author": { "name": "pdfvera", "email": "kontakt@pdfvera.com", "url": "https://pdfvera.com/" },
+  "author": {
+    "name": "pdfvera",
+    "email": "kontakt@pdfvera.com",
+    "url": "https://pdfvera.com/"
+  },
   "homepage": "https://pdfvera.com/de/e-rechnung-api/",
   "repository": "https://github.com/pdfvera/pdfvera-mcp",
   "license": "MIT",
-  "keywords": ["xrechnung", "zugferd", "e-rechnung", "ofx", "extrato bancario"],
+  "keywords": [
+    "xrechnung",
+    "zugferd",
+    "e-rechnung",
+    "ofx",
+    "extrato bancario"
+  ],
   "userConfig": {
     "api_key": {
       "type": "string",
@@ -14,5 +25,9 @@
       "description": "Create it in your pdfvera account: pdfvera.com/de/konto/ or pdfvera.com/pt-br/conta/",
       "sensitive": true
     }
-  }
+  },
+  "documentationUrl": "https://github.com/pdfvera/pdfvera-mcp#readme",
+  "supportUrl": "https://github.com/pdfvera/pdfvera-mcp/issues",
+  "privacyPolicyUrl": "https://pdfvera.com/de/datenschutz/",
+  "termsOfServiceUrl": "https://pdfvera.com/de/agb/"
 }

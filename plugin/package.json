@@ -1,5 +1,0 @@
-{
-  "name": "pdfvera-plugin",
-  "private": true,
-  "dependencies": { "pdfvera-mcp": "1.0.2" }
-}

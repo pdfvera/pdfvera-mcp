@@ -1,14 +1,14 @@
 #!/bin/sh
-# Release: npm package, official MCP registry, hosted .mcpb. Bump "version" in package.json, server.json (twice),
-# plugin/.claude-plugin/plugin.json, the pinned version in plugin/.mcp.json, mcpb/manifest.json and VERSION in src/index.ts first.
+# Release. First bump "version" in package.json, server.json (twice), plugin/.claude-plugin/plugin.json,
+# mcpb/manifest.json and VERSION in src/server.js. src/server.js is the only source; npm run build copies it
+# to dist/ (npm), plugin/server/ (Claude Code plugin, committed) and mcpb/server/ (Claude Desktop extension).
 set -e
 cd "$(dirname "$0")/.."
 npm whoami >/dev/null || { echo "Run: npm login"; exit 1; }
-npm publish --access public  # asks for the authenticator code; npm holds it a few minutes before it is live
-cp dist/index.js mcpb/server/index.js && npx -y @anthropic-ai/mcpb pack mcpb pdfvera.mcpb
-cp pdfvera.mcpb ../pdfvera-web/public/mcp/pdfvera.mcpb
+npm run build
+npm publish --access public  # asks for the authenticator code; npm holds new versions a few minutes
+npx -y @anthropic-ai/mcpb pack mcpb pdfvera.mcpb && cp pdfvera.mcpb ../pdfvera-web/public/mcp/pdfvera.mcpb
 KEY="$(openssl pkey -in ~/.config/pdfvera/mcp-registry-ed25519.pem -outform DER | tail -c 32 | xxd -p -c 64)"
 mcp-publisher login http --domain pdfvera.com --private-key "$KEY"
-mcp-publisher publish
-(cd plugin && sed -i '' "s/\"pdfvera-mcp\": \"[0-9.]*\"/\"pdfvera-mcp\": \"$(node -p "require('../package.json').version")\"/" package.json && npm install --package-lock-only --prefer-online)
-echo "Commit and push (the plugin lockfile changed). Deploy pdfvera-web (npm run cf:deploy) so the new .mcpb is live."
+mcp-publisher publish  # fails until npm shows the new version; then run it again
+echo "Commit and push (plugin/server/ changed; the Claude directory picks up main). Deploy pdfvera-web for the .mcpb."
