@@ -15,19 +15,17 @@ The server runs on your computer. It reads the PDF from your disk, sends it to t
 
 ## Install
 
-**Claude Code plugin**
+**Claude Code**
+
+```
+claude mcp add pdfvera -e PDFVERA_API_KEY=pv_YOUR_KEY -- npx -y pdfvera-mcp@latest
+```
+
+Or as a plugin. The plugin has no MCP server; it is a skill that lets Claude call the pdfvera API with `curl`. It reads the key from `PDFVERA_API_KEY`, so first add `{ "env": { "PDFVERA_API_KEY": "pv_YOUR_KEY" } }` to `~/.claude/settings.json`, then:
 
 ```
 /plugin marketplace add pdfvera/pdfvera-mcp
 /plugin install pdfvera@pdfvera
-```
-
-You are asked for the API key once; it is stored in your system keychain.
-
-**Claude Code without the plugin**
-
-```
-claude mcp add pdfvera -e PDFVERA_API_KEY=pv_YOUR_KEY -- npx -y pdfvera-mcp@latest
 ```
 
 **Cursor** (`~/.cursor/mcp.json`) and other MCP clients
@@ -70,7 +68,7 @@ This program stores nothing. It sends the PDF you name and your answers to pdfve
 
 ## Troubleshooting
 
-- **"No pdfvera API key"**: set `PDFVERA_API_KEY` in the server configuration (or the plugin settings) and restart the assistant.
+- **"No pdfvera API key"**: set `PDFVERA_API_KEY` in the server configuration (for the plugin: in `~/.claude/settings.json` under `env`) and restart the assistant.
 - **"The API key is missing, wrong or revoked"**: create a new key in your pdfvera account.
 - **"no active plan" / "quota is used up"**: files need a plan; `check_only` works without one.
 - **The assistant doesn't see the tools**: check that `node --version` prints 18 or newer and restart the assistant.
