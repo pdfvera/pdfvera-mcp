@@ -1,6 +1,6 @@
 #!/bin/sh
 # Release: npm package, official MCP registry, hosted .mcpb. Bump "version" in package.json, server.json (twice),
-# plugin/.claude-plugin/plugin.json, mcpb/manifest.json and VERSION in src/index.ts first.
+# plugin/.claude-plugin/plugin.json, the pinned version in plugin/.mcp.json, mcpb/manifest.json and VERSION in src/index.ts first.
 set -e
 cd "$(dirname "$0")/.."
 npm whoami >/dev/null || { echo "Run: npm login"; exit 1; }

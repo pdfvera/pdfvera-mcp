@@ -2,7 +2,7 @@
   "mcpServers": {
     "pdfvera": {
       "command": "npx",
-      "args": ["-y", "pdfvera-mcp@latest"],
+      "args": ["-y", "pdfvera-mcp@1.0.1"],
       "env": { "PDFVERA_API_KEY": "${user_config.api_key}" }
     }
   }
